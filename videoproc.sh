@@ -60,6 +60,9 @@ fi
 
 # Remarkably, I could not get transpose=1 to work with ffmpeg
 # I quit, I'm sticking with avconv for this action.
+# avconv -i $2.mp4 -strict experimental -vf transpose=2 -codec:a copy $2-transpose.mp4
+# The above transpose=2 is good for when heads are pointed right ("up is right") in the original.
+# If heads are pointed left ("up is left"), then you should set transpose=1
 avconv -i $2.mp4 -strict experimental -vf transpose=1 -codec:a copy $2-transpose.mp4
 
 echo "Rotated file is $2-transpose.mp4";
